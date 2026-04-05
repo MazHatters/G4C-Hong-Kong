@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"soGameplay_Lukrembo___Jay__freetouse_com_",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":159.0,
+  "exportDir":"",
+  "name":"soGameplay_Lukrembo___Jay__freetouse_com_",
+  "parent":{
+    "name":"Audios",
+    "path":"folders/Audios.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"soGameplay_Lukrembo___Jay__freetouse_com_.mp3",
+  "volume":1.0,
+}

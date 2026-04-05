@@ -1,0 +1,1 @@
+// Event moved to Mouse_53.gml (Global Left Pressed) to support GUI scaling.
