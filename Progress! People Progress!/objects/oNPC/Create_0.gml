@@ -13,6 +13,7 @@ if (array_length(oController.npc_master_list) > 0)
 	text3 = chosen.dialogue3;
 	yes_text = chosen.approve;
 	no_text = chosen.reject;
+	skip_text = (variable_struct_exists(chosen, "skip")) ? chosen.skip : chosen.reject;
 	profit = chosen.gain;
 	lose = chosen.lost;
 	sprite_index = chosen.sprite;

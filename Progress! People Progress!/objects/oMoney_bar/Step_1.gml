@@ -1,1 +1,1 @@
-x = window_get_width() / 2;
+//x = window_get_width() / 2;

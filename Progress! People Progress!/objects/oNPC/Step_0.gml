@@ -135,8 +135,8 @@ switch (state)
         else if (oController.player_choice == "SKIP") // NEW
         {
             oController.npc_timer_active = false;
-            // Play reject dialogue
-            current_response = no_text;
+            // Play skip dialogue
+            current_response = skip_text;
             full_text = current_response;
             char_count = 0;
             state = "RESPONSE";
