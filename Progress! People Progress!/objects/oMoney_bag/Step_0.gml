@@ -1,11 +1,7 @@
 if (instance_exists(oController) && instance_exists(oMoney_bar))
 {
     // Determine the current quota
-    var _quota = 1; 
-    if (oController.day == 1) _quota = oController.day1_quota;
-    else if (oController.day == 2) _quota = oController.day2_quota;
-    else if (oController.day == 3) _quota = oController.day3_quota;
-    else _quota = oController.day3_quota;
+    var _quota = oController.get_current_quota();
 
     // Calculate target X position based on revenue / quota
     // revenue / quota gives a range nominally [0, 1] for profit, but can be negative

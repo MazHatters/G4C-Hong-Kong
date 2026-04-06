@@ -13,7 +13,6 @@
     {"$GMFolder":"","%Name":"Audios","folderPath":"folders/Audios.yy","name":"Audios","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Forest background","folderPath":"folders/Forest background.yy","name":"Forest background","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Tutorial_slides","folderPath":"folders/Tutorial_slides.yy","name":"Tutorial_slides","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Buttons","folderPath":"folders/Objects/Buttons.yy","name":"Buttons","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Parents","folderPath":"folders/Objects/Parents.yy","name":"Parents","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -24,6 +23,7 @@
     {"$GMFolder":"","%Name":"Money_icons","folderPath":"folders/Sprites/Money_icons.yy","name":"Money_icons","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"NPC_sprites","folderPath":"folders/Sprites/NPC_sprites.yy","name":"NPC_sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Town background","folderPath":"folders/Town background.yy","name":"Town background","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Tutorial_slides","folderPath":"folders/Tutorial_slides.yy","name":"Tutorial_slides","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[

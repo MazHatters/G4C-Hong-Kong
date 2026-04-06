@@ -5,7 +5,7 @@ if (show_result)
 	var _cx = _gw / 2;
 	var _cy = _gh / 2;
 
-	// 1. Draw Background Dimmer (Drawn at depth 0)
+	// 1. Draw Background Dimmer
 	draw_set_color(c_black);
 	draw_set_alpha(result_fade_alpha);
 	draw_rectangle(0, 0, _gw, _gh, false);
@@ -16,57 +16,40 @@ if (show_result)
 	draw_set_font(fDialog);
 
 	// 2. Mission Success/Failure Logic
-	var _target_quota = (day == 1) ? day1_quota : ((day == 2) ? day2_quota : day3_quota);
+	var _target_quota = get_current_quota();
+	var _success = (revenue >= _target_quota && !force_loss);
+    
+    // UI Button Cleanup & Spawning
+    if (!instance_exists(oButton_restart_room)) 
+    {
+        if (_success && day < 3) {
+            if (!instance_exists(oButton_nextday)) instance_create_depth(0, 0, -1000, oButton_nextday);
+        } else {
+            instance_create_depth(0, 0, -1000, oButton_restart_room);
+            instance_create_depth(0, 0, -1000, oButton_mainmenu);
+        }
+    }
 
-	if (revenue >= _target_quota && !force_loss)
-	{
-		if (day == 3)
-		{
-			// Final Success: Destroyed Nature
-			if (!instance_exists(oButton_restart_room)) 
-			{
-				instance_create_depth(0, 0, -1000, oButton_restart_room);
-				instance_create_depth(0, 0, -1000, oButton_mainmenu);
-			}
-			
-			draw_set_color(c_orange);
-			draw_text_ext(_cx, _cy - 300, "Congratulations, you have successfully destroyed nature in exchange for economic growth", 40, 800);
-			draw_text(_cx, _cy - 270, "Total proposals: " + string(total_proposals));
-			draw_text(_cx, _cy - 240, "Total revenue: " + string(revenue));
-			draw_text(_cx, _cy - 210, "Total lost: " + string(total_lost));
-			draw_text(_cx, _cy - 180, "Total proposals rejected: " + string(total_rejected));
-		}
-		else
-		{
-			// Regular Success
-			if (!instance_exists(oButton_nextday)) instance_create_depth(0, 0, -1000, oButton_nextday);
-			
-			draw_set_color(c_lime);
-			draw_text(_cx, _cy - 300, "Project succeeded!");
-			draw_text(_cx, _cy - 250, "Total proposals: " + string(total_proposals));
-			draw_text(_cx, _cy - 200, "Total revenue: " + string(revenue));
-			draw_text(_cx, _cy - 150, "Total lost: " + string(total_lost));
-			draw_text(_cx, _cy - 100, "Total proposals rejected: " + string(total_rejected));
-		}
-	}
-	else
-	{
-		// Spawn exactly once
-		if (!instance_exists(oButton_restart_room)) 
-		{
-			instance_create_depth(0, 0, -1000, oButton_restart_room);
-			instance_create_depth(0, 0, -1000, oButton_mainmenu);
-		}
-		
-		draw_set_color(c_red);
-		draw_text(_cx, _cy - 300, "Project failed!");
-		draw_text(_cx, _cy - 200, "Total proposals: " + string(total_proposals));
-		draw_text(_cx, _cy - 100, "Total revenue: " + string(revenue));
-		draw_text(_cx, _cy , "Total lost: " + string(total_lost));
-		draw_text(_cx, _cy + 100, "Total proposals rejected: " + string(total_rejected));
-	}
+    // Header Text
+    var _header_y = _cy - 300;
+    if (_success) {
+        draw_set_color(day == 3 ? c_orange : c_lime);
+        var _msg = day == 3 ? "Congratulations, you have successfully destroyed nature in exchange for economic growth" : "Project succeeded!";
+        draw_text_ext(_cx, _header_y, _msg, 40, 800);
+    } else {
+        draw_set_color(c_red);
+        draw_text(_cx, _header_y, "Project failed!");
+    }
+
+    // Stats Block
+    var _stats_y = _cy - 200;
+    var _spacing = 40;
+    draw_set_color(c_white);
+    draw_text(_cx, _stats_y + (0 * _spacing), "Total proposals: " + string(total_proposals));
+    draw_text(_cx, _stats_y + (1 * _spacing), "Total revenue: " + string(revenue));
+    draw_text(_cx, _stats_y + (2 * _spacing), "Total lost: " + string(total_lost));
+    draw_text(_cx, _stats_y + (3 * _spacing), "Total proposals rejected: " + string(total_rejected));
 
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	draw_set_color(c_white);
 }

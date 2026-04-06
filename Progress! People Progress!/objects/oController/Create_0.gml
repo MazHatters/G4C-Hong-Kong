@@ -5,7 +5,7 @@ base_gui_width = 1280;
 base_gui_height = 720;
 display_set_gui_size(base_gui_width, base_gui_height);
 
-// --- NPC IDENTITY DATABASE ---
+#region --- NPC IDENTITY DATABASE ---
 npc_master_list = 
 [
 	{name: "Mr. Deepwater Profit", dialogue1: "Hey Pal, I wanna 'borrow' some cash for offshore oil drilling.", dialogue2: "Just a small dent in the wallet, if ya know what I mean.", dialogue3: "The ocean is just a giant bowl of soup, and I found the black noodles.", approve: "That's the spirit, chum! Let the black gold flow.", reject: "Fine, I don't need your money. Stay thirsty, Prime Minister.", skip: "Tick tock, PM. The oil isn't going to pump itself.", sprite: sMr_deep_water_profit, gain: 200, lost: -50},
@@ -43,45 +43,79 @@ npc_master_list =
 	{name: "Mutant Fish Leader", dialogue1: "We evolved in the sludge you dumped. We want more!", dialogue2: "The cleaner the water, the more we die. Keep it toxic!", dialogue3: "Make more. Open the pipes and feed your new masters.", approve: "We grow. The sludge is our lifeblood. Keep it flowing!", reject: "We adapt anyway. You can't stop the mutation.", skip: "Glub. We'll be under your bed later.", sprite: sFishOuttaWotah, gain: 150, lost: -50},
 	{name: "Lonely Skeleton", dialogue1: "I need more graves. More friends. Cut the trees.", dialogue2: "Tear down the grove to make room for a luxury crypt.", dialogue3: "It's peaceful, profitable, and very permanent. Cut trees.", approve: "More friends <: No trees to block the view.", reject: "I'll see you eventually. I forgive your attachment.", skip: "Take your time. I'm not going anywhere. Literally.", sprite: sSkeleton_Papyrus, gain: 100, lost: -50},
 	{name: "Wife", dialogue1: "Honey, can I have money? Pretty pleasee.", dialogue2: "I saw the cutest diamond mine that needs a mountain cleared.", dialogue3: "All my friends got the new handbag. Best husband ever?", approve: "Yayyy I love you! (The mountain fell on the city water pipes. Repair debt logged).", reject: "I'm filing a divorce. You care more about dirt than me!", skip: "I'm going to go buy it anyway and put it on your card!", sprite: sWife, gain: -600, lost: -50}
-]
+];
 array_shuffle_ext(npc_master_list);
+#endregion
 
+// --- MISSION PARAMS ---
 day = 1;
-npc_limit = 5; // Will be set in start_day
-day1_quota = 500;
-day2_quota = 1500;
-day3_quota = 3000;
 revenue = 0;
 nature = 0;
-npc_count = 0;
 loss_npc_count = 0;
+approvals_remaining = 5; 
+total_proposals = 0;
+total_rejected = 0;
+total_lost = 0;
+daily_quotas = [500, 1500, 3000];
+
+// --- NPC MANAGEMENT ---
+npc_count = 0;
+npc_cooldown_queue = [];
 player_choice = "WAITING";
+
+// --- GAME STATE ---
 show_result = false;
+day_done = false;
+force_loss = false;
+quota_hit = false;
+
+// --- TIMER VARS ---
+day_timer = 90 * 60;
+max_day_timer = 90 * 60;
+npc_timer = 5 * 60;
+npc_timer_active = false;
+static_timer = 0;
+
+// --- UI & RESOLUTION ---
+depth = -10;
+result_fade_alpha = 0;
 current_slide = 1;
 max_slides = 7;
-depth = -10;
-
-// --- NEW GAMEPLAY OVERHAUL VARIABLES ---
-approvals_remaining = 5;
-day_timer = 90 * 60; // 90 seconds @ 60 FPS
-npc_timer = 5 * 60;  // 5 seconds @ 60 FPS
-npc_timer_active = false;
-quota_hit = false;
-day_done = false;
-static_timer = 0;
-max_day_timer = 90 * 60;
-result_fade_alpha = 0;
-show_result = false;
-force_loss = false;
-
 global.skips_remaining = 3;
 
-// Function to initialize a new day
+// --- HELPER METHODS ---
+
+/// @func get_current_quota()
+get_current_quota = function() {
+    var _idx = clamp(day - 1, 0, array_length(daily_quotas) - 1);
+    return daily_quotas[_idx];
+}
+
+/// @func cleanup_ui_buttons()
+cleanup_ui_buttons = function() {
+    if (instance_exists(oButton_parent)) {
+        instance_destroy(oButton_parent);
+    }
+    // Cleanup specific instances just in case they don't have parent
+    if (instance_exists(oButton_approve)) instance_destroy(oButton_approve);
+    if (instance_exists(oButton_reject)) instance_destroy(oButton_reject);
+    if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
+}
+
+/// @func start_day()
 start_day = function() {
     npc_count = 0;
     show_result = false;
-    loss_npc_count = 0;
     day_timer = 90 * 60;
+    
+    // Set parameters based on day
+    switch(day) {
+        case 1: approvals_remaining = 5;  day_timer = 90 * 60;  break;
+        case 2: approvals_remaining = 10; day_timer = 120 * 60; break;
+        case 3: approvals_remaining = 15; day_timer = 150 * 60; break;
+        default: approvals_remaining = 5; day_timer = 90 * 60;  break;
+    }
+    
     max_day_timer = day_timer;
     npc_timer = 10 * 60;
     npc_timer_active = false;
@@ -90,64 +124,35 @@ start_day = function() {
     day_done = false;
     global.skips_remaining = 3;
     result_fade_alpha = 0;
-	total_proposals = 0;
-	total_rejected = 0;
-	total_lost = 0;
-    static_timer = 60; // 1s of static on day start
+    total_proposals = 0;
+    total_rejected = 0;
+    total_lost = 0;
+    static_timer = 60; 
     
-    npc_limit = 999; // effectively unlimited
-    
-    switch(day) {
-        case 1: 
-            approvals_remaining = 5; 
-            day_timer = 90 * 60;
-            break;
-        case 2: 
-            approvals_remaining = 10; 
-            day_timer = 120 * 60;
-            break;
-        case 3: 
-            approvals_remaining = 15; 
-            day_timer = 150 * 60;
-            break;
-        default: 
-            approvals_remaining = 5; 
-            day_timer = 90 * 60;
-            break;
-    }
-    max_day_timer = day_timer;
-    
-    // --- UI SPAWNING & RESET ---
-    if (room == Gameplay)
-    {
-        // Cleanup old UI to prevent duplicates
-    instance_destroy(oDay_TimerCircle);
-    instance_destroy(oNPC_TimerBar);
-    
-    // Spawn UI (using room-relative or GUI-relative positions)
-    instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
-    instance_create_layer(544, 608, "Dialogue_box", oNPC_TimerBar);
-    
-    // Spawn Parallax Clouds on the TV layer
-    var _c1 = instance_create_layer(768, 150, "TV", oCloud_Parallax_1);
-    _c1.depth = 650;
-    _c1.move_speed = 0.5;
-    _c1.sprite_index = sCloud1;
-    
-    var _c2 = instance_create_layer(850, 250, "TV", oCloud_Parallax_2);
-    _c2.depth = 650;
-    _c2.move_speed = 0.8;
-    _c2.sprite_index = sCloud2;
+    if (room == Gameplay) {
+        // Cleanup old UI
+        instance_destroy(oDay_TimerCircle);
+        instance_destroy(oNPC_TimerBar);
+        
+        // Spawn UI
+        instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
+        instance_create_layer(544, 608, "Dialogue_box", oNPC_TimerBar);
+        
+        // Parallax Clouds
+        var _c1 = instance_create_layer(768, 150, "TV", oCloud_Parallax_1);
+        _c1.depth = 650;
+        _c1.move_speed = 0.5;
+        _c1.sprite_index = sCloud1;
+        
+        var _c2 = instance_create_layer(850, 250, "TV", oCloud_Parallax_2);
+        _c2.depth = 650;
+        _c2.move_speed = 0.8;
+        _c2.sprite_index = sCloud2;
     }
 }
 
-// Initial first day is now handled by Room Start event (Other 4)
-// start_day();
-
 current_music = -1;
-
-if (room == Main_menu) 
-{
+if (room == Main_menu) {
     current_music = audio_play_sound(soMain_menu_Dagored___Harlem_Heat__freetouse_com_, 100, true);
     audio_sound_gain(current_music, 1, 0);
 }

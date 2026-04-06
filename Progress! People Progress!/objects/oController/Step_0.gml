@@ -55,7 +55,7 @@ if (room == Tutorial && mouse_check_button_pressed(mb_left))
 }
 
 // --- MISSION PARAMETERS: TIMER & QUOTA ---
-if (room != Main_menu && !show_result) {
+if (room == Gameplay && !show_result) {
     // Day Timer Countdown
     if (day_timer > 0) day_timer--;
     
@@ -63,12 +63,7 @@ if (room != Main_menu && !show_result) {
     if (npc_timer_active && npc_timer > 0) npc_timer--;
     
     // Update Quota Status
-    var _target_quota = 0;
-    switch(day) {
-        case 1: _target_quota = day1_quota; break;
-        case 2: _target_quota = day2_quota; break;
-        case 3: _target_quota = day3_quota; break;
-    }
+    var _target_quota = get_current_quota();
     quota_hit = (revenue >= _target_quota);
 
     // Global Loss Check
