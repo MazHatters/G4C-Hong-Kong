@@ -67,7 +67,6 @@
     {"id":{"name":"oLeft_tv","path":"objects/oLeft_tv/oLeft_tv.yy",},},
     {"id":{"name":"oMoney_bag","path":"objects/oMoney_bag/oMoney_bag.yy",},},
     {"id":{"name":"oMoney_bar","path":"objects/oMoney_bar/oMoney_bar.yy",},},
-    {"id":{"name":"oNPC_limit","path":"objects/oNPC_limit/oNPC_limit.yy",},},
     {"id":{"name":"oNPC_TimerBar","path":"objects/oNPC_TimerBar/oNPC_TimerBar.yy",},},
     {"id":{"name":"oNPC","path":"objects/oNPC/oNPC.yy",},},
     {"id":{"name":"oRight_tv","path":"objects/oRight_tv/oRight_tv.yy",},},

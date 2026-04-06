@@ -9,7 +9,7 @@ display_set_gui_size(base_gui_width, base_gui_height);
 npc_master_list = 
 [
 	{name: "Mr. Deepwater Profit", dialogue1: "Hey Pal, I wanna 'borrow' some cash for offshore oil drilling.", dialogue2: "Just a small dent in the wallet, if ya know what I mean.", dialogue3: "The ocean is just a giant bowl of soup, and I found the black noodles.", approve: "That's the spirit, chum! Let the black gold flow.", reject: "Fine, I don't need your money. Stay thirsty, Prime Minister.", sprite: sMr_deep_water_profit, gain: 200, lost: -50},
-	{name: "Chad Ecovision tm", dialogue1: "Yoo—you should totally build your own infinity pool.", dialogue2: "All the cool billionaires have one. It's a total vibe.", dialogue3: "We'll just pave over the turtle nests. They can't swim anyway.", approve: "AW DANGIT! (The pool leaked into the subway. Massive structural repairs needed).", reject: "Well screw you, I'll just find some other rich idiots.", sprite: sGigachad, gain: -250, lost: 50},
+	{name: "Chad Ecovision tm", dialogue1: "Yoo- you should totally build your own infinity pool.", dialogue2: "All the cool billionaires have one. It's a total vibe.", dialogue3: "We'll just pave over the turtle nests. They can't swim anyway.", approve: "AW DANGIT! (The pool leaked into the subway. Massive structural repairs needed).", reject: "Well screw you, I'll just find some other rich idiots.", sprite: sGigachad, gain: -250, lost: 50},
 	{name: "Synergy Sam", dialogue1: "YOU WILL GIVE ME MONEY! I'LL GET UNLIMITED POWER!", dialogue2: "I'LL PLUG A TOASTER INTO THE VOLCANO!", dialogue3: "THE EARTHQUAKES ARE JUST THE SOUND OF MY ASCENSION!", approve: "YES! ALL THE FUEL IS MINE! (The city power grid exploded. Massive repair costs).", reject: "My powers... are fading into bankruptcy...", sprite: sSynergy_sam, gain: -400, lost: -100},
 	{name: "Tim Burr, CEO", dialogue1: "Hey Min-man, I need some cash to throw at trees. Literally.", dialogue2: "I want to shave the mountain bald and sell the hair.", dialogue3: "Who needs oxygen when you can have a private jet?", approve: "I knew you were cool. Timber! I love the sound of falling wood.", reject: "How bland. What's the point of having money if you won't spend it?", sprite: sTim_burr, gain: 150, lost: -100},
 	{name: "Captain Overcatch", dialogue1: "ALL THE FISH WILL BE MINE! I WILL PURIFY THE WATERS!", dialogue2: "THERE'S TOO MANY FISH, IT'S CROWDED! I'LL SCOOP THEM UP!", dialogue3: "AWAITING ORDERS TO STRIP THE SEABED CLEAN!", approve: "Zero fish left behind. Hook, line, and sinker!", reject: "The fish will be the end of us all... you'll see!", sprite: sCaptain_overcatch, gain: 150, lost: -50},
@@ -30,7 +30,7 @@ npc_master_list =
 	{name: "Corporate Devil", dialogue1: "Give me 100 human souls. I'll make it worth your while.", dialogue2: "I'll fill the river with gold. It might be hot to the touch.", dialogue3: "Don't worry about 'eternal' consequences. Just sign here.", approve: "Pleasure doing business. The sulfur smells like success.", reject: "Just think about it. You're too 'good' for me. Boring.", sprite: sSatan, gain: 500, lost: -50},
 	{name: "Mr. O'Haze", dialogue1: "Pollution is profitable. Air, water... optional.", dialogue2: "Let's make the air so thick people have to buy it from us!", dialogue3: "Factory is necessity. Let's choke the town out for cash.", approve: "I say let it die! Profit is in the smog!", reject: "You gotta be kidding me. Passing up a monopoly on breathing?", sprite: sOHare, gain: 200, lost: -50},
 	{name: "Mukbang Mogul", dialogue1: "I need MORE seafood. Like... way more. It's for a video!", dialogue2: "I need to eat every single shrimp in the harbor. NOW!", dialogue3: "It's your fault if I stay hungry! It's YOUR fault!", approve: "BURP! (The fishing industry went bankrupt overnight. Bailout required).", reject: "cries. YOU'RE STARVING ME! RUINING MY CAREER!", sprite: sNikokado_avocado, gain: -300, lost: 100},
-	{name: "The Deep Guy", dialogue1: "The ocean trusts me... I think. Help me save the dolphins.", dialogue2: "They want me to build an offshore toxic refinery for them.", dialogue3: "It's a spiritual thing. Don't be a hater, bro.", approve: "Ah shit, the tank leaked. (The harbor is now a toxic waste zone. Cleanup costs are huge).", reject: "Sex is just a spectrum right bro? You don't get the vibe.", sprite: sThe_deep, gain: -400, lost: -100},
+	{name: "The Deep Guy", dialogue1: "The ocean trusts me... I think. Help me save the dolphins.", dialogue2: "They want me to build an offshore toxic refinery for them.", dialogue3: "It's a spiritual thing. Don't be a hater, bro.", approve: "Ah shoot, the tank leaked. (The harbor is now a toxic waste zone. Cleanup costs are huge).", reject: "Gender is just a spectrum right bro? You don't get the vibe.", sprite: sThe_deep, gain: -400, lost: -100},
 	{name: "BigEater", dialogue1: "That's a LOT of food. That forest looks like broccoli.", dialogue2: "Can I have more? I'm gonna need a loan to eat that.", dialogue3: "I'm literally wasting away. Just let me eat the park.", approve: "W meal. (He ate the park AND the city grain reserves. Food riot repairs needed).", reject: "Mods ban him. He's gatekeeping the buffet!", sprite: sCaseoh, gain: -500, lost: 50},
 	{name: "Count Edward", dialogue1: "I'm hunting vermin. But the sunlight is... irritating.", dialogue2: "Level the forest so I can hunt in the cold, gray moonlight.", dialogue3: "The ecosystem is a small price for my convenience.", approve: "How... intoxicating. The smell of sawdust and ancient blood.", reject: "How... moral. It's quite repulsive. Enjoy the sun.", sprite: sEdward_Cullen, gain: 150, lost: -50},
 	{name: "Charity Beast", dialogue1: "I JUST BOUGHT THE ENTIRE NATIONAL PARK TO BULLDOZE IT!", dialogue2: "FOR EVERY TREE CHOPPED, I'LL DONATE A NICKEL TO 'COAL'!", dialogue3: "Like and subscribe to the total environmental collapse!", approve: "W content! (The giveaway drained the city welfare fund).", reject: "You hate charity? That's going in the thumbnail, loser!", sprite: sMr_fake_beast, gain: -350, lost: -100},
@@ -49,8 +49,8 @@ array_shuffle_ext(npc_master_list);
 day = 1;
 npc_limit = 5; // Will be set in start_day
 day1_quota = 500;
-day2_quota = 1000;
-day3_quota = 1500;
+day2_quota = 1500;
+day3_quota = 3000;
 revenue = 0;
 nature = 0;
 npc_count = 0;
@@ -114,12 +114,10 @@ start_day = function() {
     {
         // Cleanup old UI to prevent duplicates
     instance_destroy(oDay_TimerCircle);
-    instance_destroy(oApprovals_Box);
     instance_destroy(oNPC_TimerBar);
     
     // Spawn UI (using room-relative or GUI-relative positions)
     instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
-    instance_create_layer(1120, 64, "Dialog_choice_revenue", oApprovals_Box);
     instance_create_layer(544, 608, "Dialogue_box", oNPC_TimerBar);
     
     // Spawn Parallax Clouds on the TV layer
