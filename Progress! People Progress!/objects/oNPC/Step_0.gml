@@ -13,6 +13,7 @@ switch (state)
 			state = "TALKING";
 			dialogue_step = 1;
 			char_count = 0;
+			oController.total_proposals++;
 		}
 	break;
 
@@ -85,6 +86,7 @@ switch (state)
 			{
 				_ft.text_color = c_red;
 				_ft.float_direction = -1;
+				oController.total_lost += profit;
 			}
 			io_clear();
             
@@ -134,6 +136,7 @@ switch (state)
 			{
 				_ft.text_color = c_red;
 				_ft.float_direction = -1;
+				oController.total_lost += profit;
 			}
 			io_clear();
             
@@ -141,6 +144,7 @@ switch (state)
             if (instance_exists(oButton_approve)) instance_destroy(oButton_approve);
             if (instance_exists(oButton_reject)) instance_destroy(oButton_reject);
             if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
+			oController.total_rejected++;
 		}
         else if (oController.player_choice == "SKIP") // NEW
         {

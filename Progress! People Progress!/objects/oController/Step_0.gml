@@ -5,17 +5,6 @@ if (keyboard_check_pressed(ord("Q")) || keyboard_check_pressed(vk_escape))
 if (keyboard_check_pressed(ord("R")))
     game_restart();
 
-// --- FULLSCREEN TOGGLE PROTOCOL ---
-if (keyboard_check_pressed(vk_f11)) {
-    if (window_get_fullscreen()) {
-        window_set_fullscreen(false);
-        window_set_size(1280, 720); 
-    } else {
-        window_set_fullscreen(true);
-    }
-    // Alarm 0 will handle the heavy lifting once the window has settled
-    alarm[0] = 1; 
-}
 
 // --- DYNAMIC RESOLUTION & GUI ANCHORING ---
 if (window_has_focus()) 
@@ -35,6 +24,33 @@ if (window_has_focus())
         
         // 3. Prevent Camera Stretching
         camera_set_view_size(view_camera[0], _ww, _wh);
+    }
+}
+
+// --- TEACHING NEW RECRUITS HOW TO OPERATE (REINFORCED) ---
+if (room == Tutorial && mouse_check_button_pressed(mb_left))
+{
+    // 1. Identify the current containment layer
+    var _current_layer = layer_get_id("tut" + string(current_slide));
+    
+    if (current_slide < max_slides)
+    {
+        // 2. Shut down current visual
+        layer_set_visible(_current_layer, false);
+        
+        // 3. Advance to next coordinate
+        current_slide += 1;
+        
+        // 4. Activate next visual
+        var _next_layer = layer_get_id("tut" + string(current_slide));
+        layer_set_visible(_next_layer, true);
+        
+        // --- LOG: ADVANCING TO SLIDE [string(current_slide)] ---
+    }
+    else
+    {
+        // 5. Final slide reached. Moving to Main Mission.
+        room_goto_next();
     }
 }
 

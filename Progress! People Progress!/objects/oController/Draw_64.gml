@@ -30,8 +30,11 @@ if (show_result)
 			}
 			
 			draw_set_color(c_orange);
-			draw_text_ext(_cx, _cy - 100, "Congratulations, you have successfully destroyed nature in exchange for economic growth", 40, 800);
-			draw_text(_cx, _cy + 100, "Total Revenue: " + string(revenue));
+			draw_text_ext(_cx, _cy - 300, "Congratulations, you have successfully destroyed nature in exchange for economic growth", 40, 800);
+			draw_text(_cx, _cy - 270, "Total proposals: " + string(total_proposals));
+			draw_text(_cx, _cy - 240, "Total revenue: " + string(revenue));
+			draw_text(_cx, _cy - 210, "Total lost: " + string(total_lost));
+			draw_text(_cx, _cy - 180, "Total proposals rejected: " + string(total_rejected));
 		}
 		else
 		{
@@ -39,8 +42,11 @@ if (show_result)
 			if (!instance_exists(oButton_nextday)) instance_create_depth(0, 0, -1000, oButton_nextday);
 			
 			draw_set_color(c_lime);
-			draw_text(_cx, _cy - 200, "Project Succeeded!");
-			draw_text(_cx, _cy - 100, "Total Revenue: " + string(revenue));
+			draw_text(_cx, _cy - 300, "Project succeeded!");
+			draw_text(_cx, _cy - 250, "Total proposals: " + string(total_proposals));
+			draw_text(_cx, _cy - 200, "Total revenue: " + string(revenue));
+			draw_text(_cx, _cy - 150, "Total lost: " + string(total_lost));
+			draw_text(_cx, _cy - 100, "Total proposals rejected: " + string(total_rejected));
 		}
 	}
 	else
@@ -53,8 +59,11 @@ if (show_result)
 		}
 		
 		draw_set_color(c_red);
-		draw_text(_cx, _cy - 100, "Project Failed!");
-		draw_text(_cx, _cy, "Total Revenue: " + string(revenue) + " / " + string(_target_quota));
+		draw_text(_cx, _cy - 300, "Project failed!");
+		draw_text(_cx, _cy - 200, "Total proposals: " + string(total_proposals));
+		draw_text(_cx, _cy - 100, "Total revenue: " + string(revenue));
+		draw_text(_cx, _cy , "Total lost: " + string(total_lost));
+		draw_text(_cx, _cy + 100, "Total proposals rejected: " + string(total_rejected));
 	}
 
 	draw_set_halign(fa_left);

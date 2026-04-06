@@ -1,4 +1,4 @@
-                                            randomise();
+randomise();
 
 // Set base resolution for GUI scaling
 base_gui_width = 1280;
@@ -30,7 +30,7 @@ npc_master_list =
 	{name: "Corporate Devil", dialogue1: "Give me 100 human souls. I'll make it worth your while.", dialogue2: "I'll fill the river with gold. It might be hot to the touch.", dialogue3: "Don't worry about 'eternal' consequences. Just sign here.", approve: "Pleasure doing business. The sulfur smells like success.", reject: "Just think about it. You're too 'good' for me. Boring.", skip: "The contract stays on the table. It's only a matter of time.", sprite: sSatan, gain: 500, lost: -50},
 	{name: "Mr. O'Haze", dialogue1: "Pollution is profitable. Air, water... optional.", dialogue2: "Let's make the air so thick people have to buy it from us!", dialogue3: "Factory is necessity. Let's choke the town out for cash.", approve: "I say let it die! Profit is in the smog!", reject: "You gotta be kidding me. Passing up a monopoly on breathing?", skip: "Better buy some masks. The smog is coming anyway.", sprite: sOHare, gain: 200, lost: -50},
 	{name: "Mukbang Mogul", dialogue1: "I need MORE seafood. Like... way more. It's for a video!", dialogue2: "I need to eat every single shrimp in the harbor. NOW!", dialogue3: "It's your fault if I stay hungry! It's YOUR fault!", approve: "BURP! (The fishing industry went bankrupt overnight. Bailout required).", reject: "cries. YOU'RE STARVING ME! RUINING MY CAREER!", skip: "I'm making a video about how mean you are right now!", sprite: sNikokado_avocado, gain: -300, lost: 100},
-	{name: "The Deep Guy", dialogue1: "The ocean trusts me... I think. Help me save the dolphins.", dialogue2: "They want me to build an offshore toxic refinery for them.", dialogue3: "It's a spiritual thing. Don't be a hater, bro.", approve: "Ah shit, the tank leaked. (The harbor is now a toxic waste zone. Cleanup costs are huge).", reject: "Gender is just a spectrum right bro? You don't get the vibe.", skip: "The dolphins told me you'd be like this.", sprite: sThe_deep, gain: -400, lost: -100},
+	{name: "The Deep Guy", dialogue1: "The ocean trusts me... I think. Help me save the dolphins.", dialogue2: "They want me to build an offshore toxic refinery for them.", dialogue3: "It's a spiritual thing. Don't be a hater, bro.", approve: "Ah shoot, the tank leaked. (The harbor is now a toxic waste zone. Cleanup costs are huge).", reject: "Gender is just a spectrum right bro? You don't get the vibe.", skip: "The dolphins told me you'd be like this.", sprite: sThe_deep, gain: -400, lost: -100},
 	{name: "BigEater", dialogue1: "That's a LOT of food. That forest looks like broccoli.", dialogue2: "Can I have more? I'm gonna need a loan to eat that.", dialogue3: "I'm literally wasting away. Just let me eat the park.", approve: "W meal. (He ate the park AND the city grain reserves. Food riot repairs needed).", reject: "Mods ban him. He's gatekeeping the buffet!", skip: "I'm getting lightheaded. Don't make me wait too long.", sprite: sCaseoh, gain: -500, lost: 50},
 	{name: "Count Edward", dialogue1: "I'm hunting vermin. But the sunlight is... irritating.", dialogue2: "Level the forest so I can hunt in the cold, gray moonlight.", dialogue3: "The ecosystem is a small price for my convenience.", approve: "How... intoxicating. The smell of sawdust and ancient blood.", reject: "How... moral. It's quite repulsive. Enjoy the sun.", skip: "I have lived for centuries. I can wait a few more hours.", sprite: sEdward_Cullen, gain: 150, lost: -50},
 	{name: "Charity Beast", dialogue1: "I JUST BOUGHT THE ENTIRE NATIONAL PARK TO BULLDOZE IT!", dialogue2: "FOR EVERY TREE CHOPPED, I'LL DONATE A NICKEL TO 'COAL'!", dialogue3: "Like and subscribe to the total environmental collapse!", approve: "W content! (The giveaway drained the city welfare fund).", reject: "You hate charity? That's going in the thumbnail, loser!", skip: "STAY TUNED FOR PART TWO!", sprite: sMr_fake_beast, gain: -350, lost: -100},
@@ -41,7 +41,7 @@ npc_master_list =
 	{name: "Virus Man", dialogue1: "Help us spread. We are the ultimate 'growth' industry.", dialogue2: "Let us infect the wetlands and replace them with factories.", dialogue3: "The swarm requires expansion. Do not fight the infection.", approve: "The swarm will remember your name as its greatest host.", reject: "We will infect everyone you love. Cures are for losers.", skip: "We are already inside the vents. We can wait.", sprite: sBacteria_Man, gain: 200, lost: -50},
 	{name: "Grandma", dialogue1: "Hey sweetie, I've made some money selling cookies.", dialogue2: "The ovens just need a little bit of 'dirty' coal to run.", dialogue3: "The smoke is just 'flavor' for the sky! Want pocket money?", approve: "Don't push yourself too hard. Keep the coal burning.", reject: "Aww you shouldn't have. I'll keep the lead to myself.", skip: "I'll go put these back in the oven for a bit.", sprite: sGrandma_ethel, gain: 100, lost: 100},
 	{name: "Mutant Fish Leader", dialogue1: "We evolved in the sludge you dumped. We want more!", dialogue2: "The cleaner the water, the more we die. Keep it toxic!", dialogue3: "Make more. Open the pipes and feed your new masters.", approve: "We grow. The sludge is our lifeblood. Keep it flowing!", reject: "We adapt anyway. You can't stop the mutation.", skip: "Glub. We'll be under your bed later.", sprite: sFishOuttaWotah, gain: 150, lost: -50},
-	{name: "Lonely Skeleton", dialogue1: "I need more graves. More friends. Cut the trees.", dialogue2: "Tear down the grove to make room for a luxury crypt.", dialogue3: "It's peaceful, profitable, and very permanent. Cut trees.", approve: "More friends <:. No trees to block the view.", reject: "I'll see you eventually. I forgive your attachment.", skip: "Take your time. I'm not going anywhere. Literally.", sprite: sSkeleton_Papyrus, gain: 100, lost: -50},
+	{name: "Lonely Skeleton", dialogue1: "I need more graves. More friends. Cut the trees.", dialogue2: "Tear down the grove to make room for a luxury crypt.", dialogue3: "It's peaceful, profitable, and very permanent. Cut trees.", approve: "More friends <: No trees to block the view.", reject: "I'll see you eventually. I forgive your attachment.", skip: "Take your time. I'm not going anywhere. Literally.", sprite: sSkeleton_Papyrus, gain: 100, lost: -50},
 	{name: "Wife", dialogue1: "Honey, can I have money? Pretty pleasee.", dialogue2: "I saw the cutest diamond mine that needs a mountain cleared.", dialogue3: "All my friends got the new handbag. Best husband ever?", approve: "Yayyy I love you! (The mountain fell on the city water pipes. Repair debt logged).", reject: "I'm filing a divorce. You care more about dirt than me!", skip: "I'm going to go buy it anyway and put it on your card!", sprite: sWife, gain: -600, lost: -50}
 ]
 array_shuffle_ext(npc_master_list);
@@ -57,6 +57,8 @@ npc_count = 0;
 loss_npc_count = 0;
 player_choice = "WAITING";
 show_result = false;
+current_slide = 1;
+max_slides = 7;
 depth = -10;
 
 // --- NEW GAMEPLAY OVERHAUL VARIABLES ---
@@ -88,6 +90,9 @@ start_day = function() {
     day_done = false;
     global.skips_remaining = 3;
     result_fade_alpha = 0;
+	total_proposals = 0;
+	total_rejected = 0;
+	total_lost = 0;
     static_timer = 60; // 1s of static on day start
     
     npc_limit = 999; // effectively unlimited
