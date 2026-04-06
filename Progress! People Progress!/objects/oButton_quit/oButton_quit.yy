@@ -4,9 +4,7 @@
   "eventList":[],
   "managed":true,
   "name":"oButton_quit",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton_parent","path":"objects/oButton_parent/oButton_parent.yy",},"propertyId":{"name":"text","path":"objects/oButton_parent/oButton_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Quit",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"Buttons",
     "path":"folders/Objects/Buttons.yy",

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlaceholder",
-    "path":"sprites/sPlaceholder/sPlaceholder.yy",
+    "name":"sNPC_timer",
+    "path":"sprites/sNPC_timer/sNPC_timer.yy",
   },
   "spriteMaskId":null,
   "visible":true,

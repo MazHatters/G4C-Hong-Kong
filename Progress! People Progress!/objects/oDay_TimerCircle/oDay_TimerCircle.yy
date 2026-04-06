@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlaceholder",
-    "path":"sprites/sPlaceholder/sPlaceholder.yy",
+    "name":"sDay_timer",
+    "path":"sprites/sDay_timer/sDay_timer.yy",
   },
   "spriteMaskId":null,
   "visible":true,

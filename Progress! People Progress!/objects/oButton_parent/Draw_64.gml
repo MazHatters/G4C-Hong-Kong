@@ -6,11 +6,6 @@ draw_set_halign(fa_center);
 draw_set_font(Font1);
 draw_set_colour(c_white);
 
-// Draw text for buttons like "Skip" that don't have it on the sprite
-if (object_index == oButton_skip) {
-    draw_text(gui_x, gui_y, text);
-}
-
 // Reset for other GUI elements
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

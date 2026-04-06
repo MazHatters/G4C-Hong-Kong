@@ -7,4 +7,5 @@ switch (object_index)
     case oButton_mainmenu:		sprite_index = sMenuBig; break;
 	case oButton_play:			sprite_index = sPlayBig; break;
 	case oButton_quit:			sprite_index = sQuitBig; break;
+	case oButton_skip:			sprite_index = sSkip_big; break;
 }

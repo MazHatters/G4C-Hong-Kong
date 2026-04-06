@@ -4,9 +4,7 @@
   "eventList":[],
   "managed":true,
   "name":"oButton_skip",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton_parent","path":"objects/oButton_parent/oButton_parent.yy",},"propertyId":{"name":"text","path":"objects/oButton_parent/oButton_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Skip",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"Buttons",
     "path":"folders/Objects/Buttons.yy",
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sApproveSmall",
-    "path":"sprites/sApproveSmall/sApproveSmall.yy",
+    "name":"sSkip_big",
+    "path":"sprites/sSkip_big/sSkip_big.yy",
   },
   "spriteMaskId":null,
   "visible":true,

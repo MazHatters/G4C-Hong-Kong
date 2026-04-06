@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlaceholder",
-    "path":"sprites/sPlaceholder/sPlaceholder.yy",
+    "name":"sProposals_remaining",
+    "path":"sprites/sProposals_remaining/sProposals_remaining.yy",
   },
   "spriteMaskId":null,
   "visible":true,
