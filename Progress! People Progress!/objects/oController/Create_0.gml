@@ -65,6 +65,12 @@ day_timer = 90 * 60; // 90 seconds @ 60 FPS
 npc_timer = 5 * 60;  // 5 seconds @ 60 FPS
 npc_timer_active = false;
 quota_hit = false;
+day_done = false;
+static_timer = 0;
+max_day_timer = 90 * 60;
+result_fade_alpha = 0;
+show_result = false;
+force_loss = false;
 
 // Function to initialize a new day
 start_day = function() {
@@ -72,33 +78,66 @@ start_day = function() {
     show_result = false;
     loss_npc_count = 0;
     day_timer = 90 * 60;
+    max_day_timer = day_timer;
     npc_timer = 10 * 60;
     npc_timer_active = false;
     quota_hit = false;
     force_loss = false;
     day_done = false;
     result_fade_alpha = 0;
+    static_timer = 60; // 1s of static on day start
     
     npc_limit = 999; // effectively unlimited
     
     switch(day) {
         case 1: 
             approvals_remaining = 5; 
+            day_timer = 90 * 60;
             break;
         case 2: 
             approvals_remaining = 10; 
+            day_timer = 120 * 60;
             break;
         case 3: 
             approvals_remaining = 15; 
+            day_timer = 150 * 60;
             break;
         default: 
             approvals_remaining = 5; 
+            day_timer = 90 * 60;
             break;
+    }
+    max_day_timer = day_timer;
+    
+    // --- UI SPAWNING & RESET ---
+    if (room == Gameplay)
+    {
+        // Cleanup old UI to prevent duplicates
+    instance_destroy(oDay_TimerCircle);
+    instance_destroy(oApprovals_Box);
+    instance_destroy(oNPC_TimerBar);
+    instance_destroy(oButton_skip_new);
+    instance_destroy(oCloud_Parallax);
+    
+    // Spawn UI (using room-relative or GUI-relative positions)
+    instance_create_layer(60, 60, "Dialog_choice_revenue", oDay_TimerCircle);
+    instance_create_layer(room_width - 60, 60, "Dialog_choice_revenue", oApprovals_Box);
+    instance_create_layer(room_width/2, room_height - 100, "Dialog_choice_revenue", oNPC_TimerBar);
+    instance_create_layer(room_width/2, room_height - 50, "Dialog_choice_revenue", oButton_skip_new);
+    
+    // Spawn Parallax Clouds
+    var _c1 = instance_create_layer(100, 150, "TV", oCloud_Parallax);
+    _c1.move_speed = 0.3;
+    _c1.sprite_index = sCloud1;
+    
+    var _c2 = instance_create_layer(500, 250, "TV", oCloud_Parallax);
+    _c2.move_speed = 0.6;
+    _c2.sprite_index = sCloud2;
     }
 }
 
-// Initialize first day
-start_day();
+// Initial first day is now handled by Room Start event (Other 4)
+// start_day();
 
 current_music = -1;
 

@@ -60,6 +60,9 @@ if (room != Main_menu && !show_result) {
     var _out_of_approvals = (approvals_remaining <= 0);
     
     // Check for Day End
+    // Static Timer countdown
+    if (static_timer > 0) static_timer--;
+
     if (_out_of_time || _out_of_approvals) {
         if (!day_done) {
             day_done = true;

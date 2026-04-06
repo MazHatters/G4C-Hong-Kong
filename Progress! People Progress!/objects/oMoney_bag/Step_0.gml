@@ -23,6 +23,17 @@ if (instance_exists(oController) && instance_exists(oMoney_bar))
     // Keep y aligned with the bar (in case bar moves or window resizes)
     y = oMoney_bar.y - 14; 
 	
-	if (oController.revenue == 0)
-		sprite_index = sMoney_bag2;
+    // --- DYNAMIC SPRITE LOGIC (Refined 5-Stage Mapping) ---
+    var _rev = oController.revenue;
+    
+    if (_rev >= _quota)
+        sprite_index = sMoney_bag4; // Quota Met+
+    else if (_rev >= 0.5 * _quota)
+        sprite_index = sMoney_bag3; // Halfway to Quota
+    else if (_rev > -0.5 * _quota)
+        sprite_index = sMoney_bag2; // Neutral / Zero
+    else if (_rev > -_quota)
+        sprite_index = sMoney_bag1; // Negative Progress
+    else
+        sprite_index = sMoney_bag0; // Critical Loss
 }
