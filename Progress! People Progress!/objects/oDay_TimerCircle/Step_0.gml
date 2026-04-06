@@ -1,6 +1,6 @@
 // Top Left position
-x = 60;
-y = 60;
+x = 83;
+y = 82;
 
 if (instance_exists(oController))
 {

@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"oButton_skip_new",
+  "%Name":"oBorder",
   "eventList":[],
   "managed":true,
-  "name":"oButton_skip_new",
+  "name":"oBorder",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"oButton_parent",
-    "path":"objects/oButton_parent/oButton_parent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlaceholder",
-    "path":"sprites/sPlaceholder/sPlaceholder.yy",
+    "name":"sBorder",
+    "path":"sprites/sBorder/sBorder.yy",
   },
   "spriteMaskId":null,
   "visible":true,

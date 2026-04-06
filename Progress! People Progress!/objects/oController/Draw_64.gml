@@ -68,21 +68,6 @@ if (room != Main_menu) {
     draw_set_color(c_white);
     draw_set_halign(fa_left);
     
-    // Day Timer
-    var _timer_secs = ceil(day_timer / 60);
-    draw_text(20, 20, "Day Timer: " + string(_timer_secs));
-    
-    // NPC Timer (Only if active)
-    if (npc_timer_active) {
-        var _npc_secs = ceil(npc_timer / 60);
-        draw_set_color(c_yellow);
-        draw_text(20, 60, "NPC Timer: " + string(_npc_secs));
-    }
-    
-    // Approvals Remaining
-    draw_set_color(c_white);
-    draw_text(20, 100, "Approvals Remaining: " + string(approvals_remaining));
-    
     // Quota Status
     if (quota_hit) draw_set_color(c_lime);
     else draw_set_color(c_red);

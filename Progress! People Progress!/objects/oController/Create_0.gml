@@ -116,21 +116,20 @@ start_day = function() {
     instance_destroy(oDay_TimerCircle);
     instance_destroy(oApprovals_Box);
     instance_destroy(oNPC_TimerBar);
-    instance_destroy(oButton_skip_new);
-    instance_destroy(oCloud_Parallax);
+    instance_destroy(oCloud_Parallax_2);
     
     // Spawn UI (using room-relative or GUI-relative positions)
-    instance_create_layer(60, 60, "Dialog_choice_revenue", oDay_TimerCircle);
-    instance_create_layer(room_width - 60, 60, "Dialog_choice_revenue", oApprovals_Box);
-    instance_create_layer(room_width/2, room_height - 100, "Dialog_choice_revenue", oNPC_TimerBar);
-    instance_create_layer(room_width/2, room_height - 50, "Dialog_choice_revenue", oButton_skip_new);
+    instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
+    instance_create_layer(1056, 64, "Dialog_choice_revenue", oApprovals_Box);
+    instance_create_layer(512, 608, "Dialog_choice_revenue", oNPC_TimerBar);
+    instance_create_layer(512, 608, "Dialog_choice_revenue", oNPC_TimerBar);
     
     // Spawn Parallax Clouds
-    var _c1 = instance_create_layer(100, 150, "TV", oCloud_Parallax);
+    var _c1 = instance_create_layer(100, 150, "TV", oCloud_Parallax_2);
     _c1.move_speed = 0.3;
     _c1.sprite_index = sCloud1;
     
-    var _c2 = instance_create_layer(500, 250, "TV", oCloud_Parallax);
+    var _c2 = instance_create_layer(500, 250, "TV", oCloud_Parallax_2);
     _c2.move_speed = 0.6;
     _c2.sprite_index = sCloud2;
     }
