@@ -38,12 +38,45 @@ if (window_has_focus())
     }
 }
 
-// --- MISSION PARAMETERS: QUOTA SCALING ---
-// Optimized using a switch to save CPU cycles
-switch(day)
-{
-    case 1: npc_limit = 5;  break;
-    case 2: npc_limit = 10; break;
-    case 3: npc_limit = 15; break;
-    default: npc_limit = 5; break;
+// --- MISSION PARAMETERS: TIMER & QUOTA ---
+if (room != Main_menu && !show_result) {
+    // Day Timer Countdown
+    if (day_timer > 0) day_timer--;
+    
+    // NPC Timer Countdown (Starts when NPC is in DECIDING state)
+    if (npc_timer_active && npc_timer > 0) npc_timer--;
+    
+    // Update Quota Status
+    var _target_quota = 0;
+    switch(day) {
+        case 1: _target_quota = day1_quota; break;
+        case 2: _target_quota = day2_quota; break;
+        case 3: _target_quota = day3_quota; break;
+    }
+    quota_hit = (revenue >= _target_quota);
+
+    // AUTO-WIN LOGIC
+    if (quota_hit && !day_done) {
+        day_done = true;
+    }
+
+    // Global Loss Check
+    var _out_of_time = (day_timer <= 0);
+    var _out_of_approvals = (approvals_remaining <= 0);
+    
+    // Check for Day End / Loss
+    if (_out_of_time || _out_of_approvals) {
+        if (!day_done) {
+            day_done = true;
+        }
+    }
+}
+
+// Fade logic
+if (day_done && !instance_exists(oNPC)) {
+    show_result = true;
+}
+
+if (show_result) {
+    if (result_fade_alpha < 0.6) result_fade_alpha += 0.02;
 }

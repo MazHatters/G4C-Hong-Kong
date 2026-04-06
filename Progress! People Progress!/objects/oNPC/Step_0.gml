@@ -39,7 +39,11 @@ switch (state)
 					{
 						instance_create_depth(0, 0, -10, oButton_approve);
 						instance_create_depth(0, 0, -10, oButton_reject);
+						instance_create_depth(0, 0, -10, oButton_skip); // NEW
 					}
+                    // Start NPC Timer
+                    oController.npc_timer = 10 * 60;
+                    oController.npc_timer_active = true;
 				}
 				else
 				{
@@ -50,8 +54,16 @@ switch (state)
 	break;
 
 	case "DECIDING":
+        // Handle Auto-Skip (NPC Timer runs out)
+        if (oController.npc_timer <= 0)
+        {
+            oController.player_choice = "SKIP";
+        }
+
 		if (oController.player_choice == "APPROVE")
 		{
+            oController.npc_timer_active = false;
+            oController.approvals_remaining--; // NEW
 			current_response = yes_text;
 			full_text = current_response; // Set typewriter to response text
 			char_count = 0;
@@ -75,6 +87,7 @@ switch (state)
 		} 
 		else if (oController.player_choice == "REJECT")
 		{
+            oController.npc_timer_active = false;
 			current_response = no_text;
 			full_text = current_response;
 			char_count = 0;
@@ -116,6 +129,25 @@ switch (state)
 			}
 			io_clear();
 		}
+        else if (oController.player_choice == "SKIP") // NEW
+        {
+            oController.npc_timer_active = false;
+            // Play reject dialogue
+            current_response = no_text;
+            full_text = current_response;
+            char_count = 0;
+            state = "RESPONSE";
+            
+            // Re-add to pool
+            array_push(oController.npc_master_list, current_npc_data);
+            
+            // Clean up buttons
+            if (instance_exists(oButton_approve)) instance_destroy(oButton_approve);
+            if (instance_exists(oButton_reject)) instance_destroy(oButton_reject);
+            if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
+            
+            io_clear();
+        }
 	break;
 
 	case "RESPONSE":
@@ -136,10 +168,9 @@ switch (state)
 		{
 			if (audio_is_playing(NPC_FootSteps)) audio_stop_sound(NPC_FootSteps);
 			oController.player_choice = "WAITING";
-			if (oController.npc_count >= oController.npc_limit)
+			if (oController.day_done)
 			{
-				if (!oController.show_result)
-					oController.show_result = true;
+				oController.show_result = true;
 			}
 			else
 				event_perform(ev_create, 0);

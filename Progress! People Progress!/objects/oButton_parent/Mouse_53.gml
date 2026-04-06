@@ -27,22 +27,28 @@ if (point_in_rectangle(_mx, _my, gui_x - _w2, gui_y - _h2, gui_x + _w2, gui_y + 
 		case oButton_approve:
 			oController.player_choice = "APPROVE";
 			instance_destroy(oButton_reject);
+            if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
 			instance_destroy();
 		break;
 		
 		case oButton_reject:
 			oController.player_choice = "REJECT";
 			instance_destroy(oButton_approve);
+            if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
 			instance_destroy();
 		break;
+
+        case oButton_skip:
+            oController.player_choice = "SKIP";
+            instance_destroy(oButton_approve);
+            instance_destroy(oButton_reject);
+            instance_destroy();
+        break;
 		
 		case oButton_nextday:
 			// Reset for next round
-			oController.npc_count = 0;
-			oController.show_result = false;
-			oController.revenue = 0;
-			oController.loss_npc_count = 0;
 			oController.day += 1;
+			oController.start_day(); // Centralized reset
 			instance_destroy();
 			with(oNPC) { event_perform(ev_create, 0); }
 		break;

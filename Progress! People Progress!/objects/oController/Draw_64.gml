@@ -7,7 +7,7 @@ if (show_result)
 
 	// 1. Draw Background Dimmer (Drawn at depth 0)
 	draw_set_color(c_black);
-	draw_set_alpha(0.5);
+	draw_set_alpha(result_fade_alpha);
 	draw_rectangle(0, 0, _gw, _gh, false);
 	draw_set_alpha(1.0);
 
@@ -18,7 +18,7 @@ if (show_result)
 	// 2. Mission Success/Failure Logic
 	var _target_quota = (day == 1) ? day1_quota : ((day == 2) ? day2_quota : day3_quota);
 
-	if (revenue >= _target_quota)
+	if (revenue >= _target_quota && !force_loss)
 	{
 		if (day == 3)
 		{
@@ -60,4 +60,33 @@ if (show_result)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
+}
+
+// --- TOP HUD DISPLAY ---
+if (room != Main_menu) {
+    draw_set_font(Font1);
+    draw_set_color(c_white);
+    draw_set_halign(fa_left);
+    
+    // Day Timer
+    var _timer_secs = ceil(day_timer / 60);
+    draw_text(20, 20, "Day Timer: " + string(_timer_secs));
+    
+    // NPC Timer (Only if active)
+    if (npc_timer_active) {
+        var _npc_secs = ceil(npc_timer / 60);
+        draw_set_color(c_yellow);
+        draw_text(20, 60, "NPC Timer: " + string(_npc_secs));
+    }
+    
+    // Approvals Remaining
+    draw_set_color(c_white);
+    draw_text(20, 100, "Approvals Remaining: " + string(approvals_remaining));
+    
+    // Quota Status
+    if (quota_hit) draw_set_color(c_lime);
+    else draw_set_color(c_red);
+    draw_text(20, 140, "Quota Met: " + (quota_hit ? "YES" : "NO"));
+    
+    draw_set_color(c_white);
 }

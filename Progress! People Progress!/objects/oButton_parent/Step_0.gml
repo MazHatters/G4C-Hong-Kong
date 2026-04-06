@@ -11,6 +11,7 @@ switch (object_index)
     case oButton_mainmenu:		gui_x = _gw / 2; gui_y = (_gh / 2) + 200; break;
 	case oButton_play:			gui_x = 320; gui_y = 448;  break;
 	case oButton_quit:			gui_x = 1088; gui_y = 640; break;
+    case oButton_skip:          gui_x = 528;  gui_y = 480; break;
 }
 
 // Physical x/y MUST match for point_in_rectangle to work in Global Pressed
