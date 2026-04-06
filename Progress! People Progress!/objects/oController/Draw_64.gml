@@ -39,8 +39,8 @@ if (show_result)
 			if (!instance_exists(oButton_nextday)) instance_create_depth(0, 0, -1000, oButton_nextday);
 			
 			draw_set_color(c_lime);
-			draw_text(_cx, _cy - 100, "Project Succeeded!");
-			draw_text(_cx, _cy, "Total Revenue: " + string(revenue));
+			draw_text(_cx, _cy - 200, "Project Succeeded!");
+			draw_text(_cx, _cy - 100, "Total Revenue: " + string(revenue));
 		}
 	}
 	else

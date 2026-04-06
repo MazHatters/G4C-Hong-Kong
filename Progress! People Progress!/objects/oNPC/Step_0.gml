@@ -42,7 +42,7 @@ switch (state)
 					{
 						instance_create_depth(0, 0, -10, oButton_approve);
 						instance_create_depth(0, 0, -10, oButton_reject);
-						instance_create_depth(0, 0, -10, oButton_skip); // NEW
+						if (global.skips_remaining > 0) instance_create_depth(0, 0, -10, oButton_skip); // NEW: Limit skips
 					}
                     // Start NPC Timer
                     oController.npc_timer = 10 * 60;
@@ -57,10 +57,10 @@ switch (state)
 	break;
 
 	case "DECIDING":
-        // Handle Auto-Skip (NPC Timer runs out)
+        // Handle Auto-Reject (NPC Timer runs out)
         if (oController.npc_timer <= 0)
         {
-            oController.player_choice = "SKIP";
+            oController.player_choice = "REJECT";
         }
 
 		if (oController.player_choice == "APPROVE")
@@ -87,6 +87,11 @@ switch (state)
 				_ft.float_direction = -1;
 			}
 			io_clear();
+            
+            // Clean up buttons (especially for auto-choice)
+            if (instance_exists(oButton_approve)) instance_destroy(oButton_approve);
+            if (instance_exists(oButton_reject)) instance_destroy(oButton_reject);
+            if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
 		} 
 		else if (oController.player_choice == "REJECT")
 		{
@@ -131,6 +136,11 @@ switch (state)
 				_ft.float_direction = -1;
 			}
 			io_clear();
+            
+            // Clean up buttons (especially for auto-choice)
+            if (instance_exists(oButton_approve)) instance_destroy(oButton_approve);
+            if (instance_exists(oButton_reject)) instance_destroy(oButton_reject);
+            if (instance_exists(oButton_skip)) instance_destroy(oButton_skip);
 		}
         else if (oController.player_choice == "SKIP") // NEW
         {

@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"oButton_skip",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"oButton_skip",
   "overriddenProperties":[],
@@ -31,9 +33,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sSkip_big",
-    "path":"sprites/sSkip_big/sSkip_big.yy",
+    "name":"sButton_skip3big",
+    "path":"sprites/sButton_skip3big/sButton_skip3big.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sButton_skip1big",
+    "path":"sprites/sButton_skip1big/sButton_skip1big.yy",
+  },
   "visible":true,
 }

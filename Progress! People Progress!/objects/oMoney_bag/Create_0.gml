@@ -7,4 +7,5 @@ if (instance_exists(oMoney_bar))
 
 target_x = x;
 lerp_speed = 0.1;
-bar_half_width = 307; // From sMoney_bar_no_highlight metadata
+bar_half_width = 307; // From sMoney_bar_no_highlight 
+depth = -9999;

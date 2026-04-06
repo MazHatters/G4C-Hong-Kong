@@ -39,6 +39,7 @@ if (point_in_rectangle(_mx, _my, gui_x - _w2, gui_y - _h2, gui_x + _w2, gui_y + 
 		break;
 
         case oButton_skip:
+            global.skips_remaining--;
             oController.player_choice = "SKIP";
             instance_destroy(oButton_approve);
             instance_destroy(oButton_reject);

@@ -72,6 +72,8 @@ result_fade_alpha = 0;
 show_result = false;
 force_loss = false;
 
+global.skips_remaining = 3;
+
 // Function to initialize a new day
 start_day = function() {
     npc_count = 0;
@@ -84,6 +86,7 @@ start_day = function() {
     quota_hit = false;
     force_loss = false;
     day_done = false;
+    global.skips_remaining = 3;
     result_fade_alpha = 0;
     static_timer = 60; // 1s of static on day start
     
