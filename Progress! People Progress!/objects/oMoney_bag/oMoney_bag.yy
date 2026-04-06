@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sMoney_bag",
-    "path":"sprites/sMoney_bag/sMoney_bag.yy",
+    "name":"sMoney_bag2",
+    "path":"sprites/sMoney_bag2/sMoney_bag2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

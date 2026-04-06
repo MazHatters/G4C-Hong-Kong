@@ -55,16 +55,11 @@ if (room != Main_menu && !show_result) {
     }
     quota_hit = (revenue >= _target_quota);
 
-    // AUTO-WIN LOGIC
-    if (quota_hit && !day_done) {
-        day_done = true;
-    }
-
     // Global Loss Check
     var _out_of_time = (day_timer <= 0);
     var _out_of_approvals = (approvals_remaining <= 0);
     
-    // Check for Day End / Loss
+    // Check for Day End
     if (_out_of_time || _out_of_approvals) {
         if (!day_done) {
             day_done = true;

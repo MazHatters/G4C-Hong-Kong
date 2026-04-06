@@ -22,4 +22,7 @@ if (instance_exists(oController) && instance_exists(oMoney_bar))
     
     // Keep y aligned with the bar (in case bar moves or window resizes)
     y = oMoney_bar.y - 14; 
+	
+	if (oController.revenue == 0)
+		sprite_index = sMoney_bag2;
 }

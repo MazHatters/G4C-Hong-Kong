@@ -43,7 +43,7 @@ npc_master_list =
 	{name: "Mutant Fish Leader", dialogue1: "We evolved in the sludge you dumped. We want more!", dialogue2: "The cleaner the water, the more we die. Keep it toxic!", dialogue3: "Make more. Open the pipes and feed your new masters.", approve: "We grow. The sludge is our lifeblood. Keep it flowing!", reject: "We adapt anyway. You can't stop the mutation.", sprite: sFishOuttaWotah, gain: 150, lost: -50},
 	{name: "Lonely Skeleton", dialogue1: "I need more graves. More friends. Cut the trees.", dialogue2: "Tear down the grove to make room for a luxury crypt.", dialogue3: "It's peaceful, profitable, and very permanent. Cut trees.", approve: "More friends <:. No trees to block the view.", reject: "I'll see you eventually. I forgive your attachment.", sprite: sSkeleton_Papyrus, gain: 100, lost: -50},
 	{name: "Wife", dialogue1: "Honey, can I have money? Pretty pleasee.", dialogue2: "I saw the cutest diamond mine that needs a mountain cleared.", dialogue3: "All my friends got the new handbag. Best husband ever?", approve: "Yayyy I love you! (The mountain fell on the city water pipes. Repair debt logged).", reject: "I'm filing a divorce. You care more about dirt than me!", sprite: sWife, gain: -600, lost: -50}
-]
+] 
 array_shuffle_ext(npc_master_list);
 
 day = 1;

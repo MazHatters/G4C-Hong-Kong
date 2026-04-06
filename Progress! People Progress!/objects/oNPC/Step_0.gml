@@ -22,6 +22,9 @@ switch (state)
 		if (dialogue_step == 3) full_text = text3;
 
 		if (char_count < string_length(full_text)) char_count += type_speed;
+        
+        // INTERACTION GUARD
+        if (oController.show_result) exit;
 
 		if (keyboard_check_pressed(vk_space) || mouse_check_button_pressed(mb_left))
 		{
@@ -153,6 +156,9 @@ switch (state)
 	case "RESPONSE":
 		if (char_count < string_length(full_text)) char_count += type_speed;
 		
+        // INTERACTION GUARD
+        if (oController.show_result) exit;
+
 		if (keyboard_check_pressed(vk_space) || mouse_check_button_pressed(mb_left))
 		{
 			if (char_count < string_length(full_text)) char_count = string_length(full_text);

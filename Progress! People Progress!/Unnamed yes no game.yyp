@@ -26,6 +26,7 @@
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"Aramis Italic.ttf","CopyToMask":-1,"filePath":"datafiles","name":"Aramis Italic.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"accpeted.wav","CopyToMask":-1,"filePath":"datafiles/sfx","name":"accpeted.wav","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"background-cheerful.wav","CopyToMask":-1,"filePath":"datafiles/sfx","name":"background-cheerful.wav","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"case-oh-footsteps.wav","CopyToMask":-1,"filePath":"datafiles/sfx","name":"case-oh-footsteps.wav","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -43,6 +44,7 @@
   },
   "name":"Unnamed yes no game",
   "resources":[
+    {"id":{"name":"Font_Italic","path":"fonts/Font_Italic/Font_Italic.yy",},},
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
     {"id":{"name":"oButton_approve","path":"objects/oButton_approve/oButton_approve.yy",},},
     {"id":{"name":"oButton_mainmenu","path":"objects/oButton_mainmenu/oButton_mainmenu.yy",},},
@@ -110,7 +112,11 @@
     {"id":{"name":"sMainmenu","path":"sprites/sMainmenu/sMainmenu.yy",},},
     {"id":{"name":"sMenuBig","path":"sprites/sMenuBig/sMenuBig.yy",},},
     {"id":{"name":"sMenuSmall","path":"sprites/sMenuSmall/sMenuSmall.yy",},},
-    {"id":{"name":"sMoney_bag","path":"sprites/sMoney_bag/sMoney_bag.yy",},},
+    {"id":{"name":"sMoney_bag0","path":"sprites/sMoney_bag0/sMoney_bag0.yy",},},
+    {"id":{"name":"sMoney_bag1","path":"sprites/sMoney_bag1/sMoney_bag1.yy",},},
+    {"id":{"name":"sMoney_bag2","path":"sprites/sMoney_bag2/sMoney_bag2.yy",},},
+    {"id":{"name":"sMoney_bag3","path":"sprites/sMoney_bag3/sMoney_bag3.yy",},},
+    {"id":{"name":"sMoney_bag4","path":"sprites/sMoney_bag4/sMoney_bag4.yy",},},
     {"id":{"name":"sMoney_bar_no_highlight","path":"sprites/sMoney_bar_no_highlight/sMoney_bar_no_highlight.yy",},},
     {"id":{"name":"sMoney_bar","path":"sprites/sMoney_bar/sMoney_bar.yy",},},
     {"id":{"name":"sMoney1","path":"sprites/sMoney1/sMoney1.yy",},},
