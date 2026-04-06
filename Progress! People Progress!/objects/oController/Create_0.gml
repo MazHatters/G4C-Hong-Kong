@@ -1,4 +1,4 @@
-randomise();
+                                            randomise();
 
 // Set base resolution for GUI scaling
 base_gui_width = 1280;
@@ -119,16 +119,18 @@ start_day = function() {
     
     // Spawn UI (using room-relative or GUI-relative positions)
     instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
-    instance_create_layer(1056, 64, "Dialog_choice_revenue", oApprovals_Box);
-    instance_create_layer(512, 608, "Dialog_choice_revenue", oNPC_TimerBar);
+    instance_create_layer(1120, 64, "Dialog_choice_revenue", oApprovals_Box);
+    instance_create_layer(544, 608, "Dialogue_box", oNPC_TimerBar);
     
-    // Spawn Parallax Clouds
-    var _c1 = instance_create_layer(100, 150, "TV", oCloud_Parallax_2);
-    _c1.move_speed = 0.3;
+    // Spawn Parallax Clouds on the TV layer
+    var _c1 = instance_create_layer(768, 150, "TV", oCloud_Parallax_1);
+    _c1.depth = 650;
+    _c1.move_speed = 0.5;
     _c1.sprite_index = sCloud1;
     
-    var _c2 = instance_create_layer(500, 250, "TV", oCloud_Parallax_2);
-    _c2.move_speed = 0.6;
+    var _c2 = instance_create_layer(850, 250, "TV", oCloud_Parallax_2);
+    _c2.depth = 650;
+    _c2.move_speed = 0.8;
     _c2.sprite_index = sCloud2;
     }
 }

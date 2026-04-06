@@ -13,7 +13,7 @@ if (show_result)
 
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_set_font(Font1);
+	draw_set_font(fDialog);
 
 	// 2. Mission Success/Failure Logic
 	var _target_quota = (day == 1) ? day1_quota : ((day == 2) ? day2_quota : day3_quota);
@@ -60,18 +60,4 @@ if (show_result)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
-}
-
-// --- TOP HUD DISPLAY ---
-if (room != Main_menu) {
-    draw_set_font(Font1);
-    draw_set_color(c_white);
-    draw_set_halign(fa_left);
-    
-    // Quota Status
-    if (quota_hit) draw_set_color(c_lime);
-    else draw_set_color(c_red);
-    draw_text(20, 140, "Quota Met: " + (quota_hit ? "YES" : "NO"));
-    
-    draw_set_color(c_white);
 }

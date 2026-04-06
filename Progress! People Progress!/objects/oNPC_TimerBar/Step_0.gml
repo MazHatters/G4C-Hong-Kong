@@ -1,7 +1,7 @@
 // Position the bar below the buttons
 // (Adjust these coordinates as needed for your UI)
-x = 448; 
-y = 384;
+x = 544; 
+y = 608;
 
 if (instance_exists(oController))
 {
