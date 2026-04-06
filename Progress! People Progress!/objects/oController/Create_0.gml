@@ -116,12 +116,10 @@ start_day = function() {
     instance_destroy(oDay_TimerCircle);
     instance_destroy(oApprovals_Box);
     instance_destroy(oNPC_TimerBar);
-    instance_destroy(oCloud_Parallax_2);
     
     // Spawn UI (using room-relative or GUI-relative positions)
     instance_create_layer(83, 82, "Dialog_choice_revenue", oDay_TimerCircle);
     instance_create_layer(1056, 64, "Dialog_choice_revenue", oApprovals_Box);
-    instance_create_layer(512, 608, "Dialog_choice_revenue", oNPC_TimerBar);
     instance_create_layer(512, 608, "Dialog_choice_revenue", oNPC_TimerBar);
     
     // Spawn Parallax Clouds

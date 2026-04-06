@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlaceholder",
-    "path":"sprites/sPlaceholder/sPlaceholder.yy",
+    "name":"sCloud2",
+    "path":"sprites/sCloud2/sCloud2.yy",
   },
   "spriteMaskId":null,
   "visible":true,
