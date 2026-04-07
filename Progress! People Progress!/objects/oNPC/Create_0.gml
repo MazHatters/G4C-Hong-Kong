@@ -1,18 +1,34 @@
+// --- INITIALIZE READY POOL ---
+if (!variable_instance_exists(oController, "npc_ready_pool")) {
+    oController.npc_ready_pool = [];
+}
+
 // --- RELEASE FROM COOLDOWN ---
 while (array_length(oController.npc_cooldown_queue) > 10) {
     var _released = array_shift(oController.npc_cooldown_queue);
-    array_push(oController.npc_master_list, _released);
+    array_push(oController.npc_ready_pool, _released);
 }
 
-if (array_length(oController.npc_master_list) == 0 && array_length(oController.npc_cooldown_queue) > 0) {
-    var _released = array_shift(oController.npc_cooldown_queue);
-    array_push(oController.npc_master_list, _released);
+// --- REFILL MASTER LIST IF EMPTY ---
+if (array_length(oController.npc_master_list) == 0) {
+    if (array_length(oController.npc_ready_pool) > 0) {
+        // Move all ready NPCs into the master list
+        while(array_length(oController.npc_ready_pool) > 0) {
+            array_push(oController.npc_master_list, array_shift(oController.npc_ready_pool));
+        }
+        // Randomize the refilled master list
+        array_shuffle_ext(oController.npc_master_list);
+    } else if (array_length(oController.npc_cooldown_queue) > 0) {
+        // Fallback: If no NPCs are ready yet, draw from cooldown pool
+        var _released = array_shift(oController.npc_cooldown_queue);
+        array_push(oController.npc_master_list, _released);
+    }
 }
 
 // --- NPC SELECTION ---
 if (array_length(oController.npc_master_list) > 0)
 {
-	var _chosen = array_shift(oController.npc_master_list);
+	var _chosen = array_shift(oController.npc_master_list); // Draw from top of deck
     current_npc_data = _chosen;
 
 	identity = _chosen.name;

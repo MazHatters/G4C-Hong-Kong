@@ -71,7 +71,10 @@ switch (state)
             // RECYCLE NPC: Push back to cooldown queue
             array_push(oController.npc_cooldown_queue, current_npc_data);
             
-			if (oController.day_done) oController.show_result = true;
+			if (oController.day_done) {
+			    oController.show_result = true;
+			    state = "IDLE";
+			}
 			else event_perform(ev_create, 0);
 		}
 	break;
